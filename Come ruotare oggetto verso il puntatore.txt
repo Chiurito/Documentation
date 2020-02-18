@@ -24,6 +24,7 @@ La procedura è:
 CODICE:
 
 // variabili globali
+
 public Transform "nome dell'oggetto da ruotare";
 private Camera theCam;
 
@@ -38,11 +39,11 @@ void Update()
 
 	{
 		Vector3 mousePos = Input.mousePosition;
-        Vector3 screenPoint = theCam.WorldToScreenPoint(transform.localPosition);
+        	Vector3 screenPoint = theCam.WorldToScreenPoint(transform.localPosition);
 		
 		Vector2 offset = new Vector2(mousePos.x - screenPoint.x, mousePos.y - screenPoint.y);
-        float angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
-        "riferimento ad oggetto da ruotare".rotation = Quaternion.Euler(0.0f, 0.0f, angle);
+       	 	float angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
+        	"riferimento ad oggetto da ruotare".rotation = Quaternion.Euler(0.0f, 0.0f, angle);
 	}
 	
 	
