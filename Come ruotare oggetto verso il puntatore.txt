@@ -3,7 +3,7 @@ La procedura è:
 
 - nelle variabili globali, creare un riferimento al transform dell'oggetto da ruotare;
 
-- creare una variabile che contiene la Main Camera;
+- nelle variabili globali, creare un riferimento alla Main Camera;
 
 - creare una variabile che contiene la posizione attuale del mouse a schermo (es. nome variabile mousePos);
 
@@ -18,13 +18,14 @@ La procedura è:
 
 - le variabili Vector3 che servono per posizione mouse, screenPoint, offset ed angle si creano tutte nel metodo update;
 
-- la variabile della Main Camera si crea nel metodo Start;
+- la variabile della Main Camera si assegna nel metodo Start;
 
 
 CODICE:
 
 // variabili globali
 public Transform "nome dell'oggetto da ruotare";
+private Camera theCam;
 
 
 void Start()
