@@ -1,0 +1,26 @@
+		Auto fire mode.
+        La variabile timeBetweenShot regola la velocità dell'autofire.
+        Stabilisce ogni quanti secondi deve essere istanziato il prossimo bullet.
+        Viene istanziato se shotCounter è uguale o minore di zero.
+        shotCounter parte da zero e viene impostato ogni volta dal valore di timeBetweenShot.
+
+
+		VARIABILI GLOBALI DA DICHIARARE:
+		
+		public float timeBetweenShot;
+		private float shotCounter;
+        
+		
+		CODICE DA INSERIRE NEL METODO UPDATE:
+
+			if ("CONDIZIONE")
+			{
+				shotCounter -= Time.deltaTime;
+
+				if (shotCounter <= 0)
+				{
+					Instantiate("PREFAB DEL BULLET DA SPARARE", firePoint.position, firePoint.rotation);
+					shotCounter = timeBetweenShot;
+				}
+            }
+		
