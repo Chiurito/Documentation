@@ -1,6 +1,4 @@
 
-La procedura è:
-
 - nelle variabili globali, creare un riferimento al transform dell'oggetto da ruotare;
 
 - nelle variabili globali, creare un riferimento alla Main Camera;
@@ -21,29 +19,27 @@ La procedura è:
 - la variabile della Main Camera si assegna nel metodo Start;
 
 
-CODICE:
-
-// variabili globali
+VARIABILI GLOBALI DA DICHIARARE:
 
 public Transform "nome dell'oggetto da ruotare";
 private Camera theCam;
 
 
-void Start()
-    {
-        theCam = Camera.main;
-    }
-	
-	
-void Update()
 
-	{
-		Vector3 mousePos = Input.mousePosition;
-        	Vector3 screenPoint = theCam.WorldToScreenPoint(transform.localPosition);
-		
-		Vector2 offset = new Vector2(mousePos.x - screenPoint.x, mousePos.y - screenPoint.y);
-       	 	float angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
-        	"riferimento ad oggetto da ruotare".rotation = Quaternion.Euler(0.0f, 0.0f, angle);
-	}
+CODICE DA INSERIRE NEL METODO START:
+
+theCam = Camera.main;
+    
+	
+	
+CODICE DA INSERIRE NEL METODO UPDATE:
+
+	
+Vector3 mousePos = Input.mousePosition;
+Vector3 screenPoint = theCam.WorldToScreenPoint(transform.localPosition);	
+Vector2 offset = new Vector2(mousePos.x - screenPoint.x, mousePos.y - screenPoint.y);
+float angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
+"riferimento ad oggetto da ruotare".rotation = Quaternion.Euler(0.0f, 0.0f, angle);
+	
 	
 	
