@@ -1,0 +1,22 @@
+
+VARIABILI DA DICHIARARE:
+
+public GameObject[] brokenPieces;
+
+public int maxPieces = 5;
+
+
+
+
+
+CODICE DA INSERIRE DOVE SI VUOLE CHE ACCADA:
+
+
+               int piecesToDrop = Random.Range(1, maxPieces);
+
+                for (int i = 0; i < piecesToDrop; i++)
+                {
+                    int randomPiece = Random.Range(0, brokenPieces.Length);
+
+                    Instantiate(brokenPieces[randomPiece], transform.position, transform.rotation);
+                } 
