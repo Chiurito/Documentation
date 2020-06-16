@@ -1,0 +1,11 @@
+
+CREAZIONE PERSONAGGIO.
+
+Si creano 3 Main Classes.
+
+- CHARACTER CLASS: contiene la logica di selezione di quale tipo di carattere voglio creare (Player Type, AI Type);
+
+- CHARACTER CONTROLLER: contiene la logica del movimento. NON il movimento in sè, ma la logica di come viene eseguito;
+
+- COMPONENT CLASS (oppure ABILITY CLASS): gestisce la logica di come tutte le abilità vengono eseguite. 
+                  Le abilità possono essere: moving, running, dashing, flip, gestione weapon, ecc.);
