@@ -8,4 +8,27 @@ Si creano 3 Main Classes.
 - CHARACTER CONTROLLER CLASS: contiene la logica del movimento. NON il movimento in sè, ma la logica di come viene eseguito;
 
 - CHARACTER COMPONENT CLASS: (oppure CHARACTER ABILITY CLASS): gestisce la logica di come tutte le abilità vengono eseguite. 
-                  Le abilità possono essere: moving, running, dashing, flip, gestione weapon, ecc.);
+Le abilità possono essere: moving, running, dashing, flip, gestione weapon, ecc.);
+
+Questa classe (CHARACTER COMPONENTS) conterrà 3 main methods:
+
+/// <summary>
+/// Main method. Here we put the logic of each ability
+/// </summary>
+private void HandleAbility()
+{
+}
+
+/// </summary>
+/// Here we get the necessary input we need to perform our actions
+/// </summary>
+private void HandleInput()
+{
+}
+
+/// </summary>
+/// Here we get the main input we need to control our character
+/// </summary>
+private void InternalInput()
+{
+}
