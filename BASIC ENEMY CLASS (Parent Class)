@@ -26,9 +26,16 @@ private void Update()
 {
     Move();
     FlipDirection();
+    
+    if (healthPoint <= 0)
+    {
+        Death();
+    }
+    
+    Attack();
 }
 
-// oppure protected virtual void Move() se voglio fare l'override di questa funzione da un'altra classe che eredita questa classe.
+// oppure protected virtual void NomeMetodo() se voglio fare l'override di questa funzione da un'altra classe che eredita questa classe.
 // vale per tutte le altre funzioni/metodi
 private void Move ()
 {
@@ -50,4 +57,14 @@ private void FlipDirection()
     {
       theSp.flipX = false;
     }
+}
+
+private void Attack()
+{
+    Debug.Log(enemyName + "IS ATTACKING!")
+}
+
+protected virtual void Death()
+{
+    Destroy(gameObject);
 }
