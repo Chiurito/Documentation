@@ -1,0 +1,48 @@
+BASIC ENEMY CLASS BEHAVIOUR:
+
+[Serializefield] private string enemyName;
+[Serializefield] private string moveSpeed;
+[Serializefield] private float maxHealthPoint;
+[Serializefield] private float safeFollowDistance;
+private float healthPoint;
+private Transform target; //si usa per eseguire la funzione di follow, in questo caso il target è il player (serve solo il transform del target per fare il follow).
+private SpriteRenderer theSp; //usato per usare il parametro FlipX dello sprite renderer per far girare il verso dello sprite verso quello che segue
+
+private void Start()
+{
+    healthPoint = maxHealthPoint;
+    
+    // assegna alla variabile target (che è di tipo Transform) il transform del player
+    // usato per avere accesso al transform del player
+    // un altro metodo di accesso è creare un singleton sulla classe del player con la variabile static instance
+    target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+    
+    theSp = GetComponent<SpriteRenderer>();
+}
+
+private void Update()
+{
+    Move();
+}
+
+private void Move ()
+{
+    // se la distanza tra il nemico ed il player è minore di "safeFollowDistance" (variabile che si può settare in inspector) allora il nemico inizia a seguire il player
+    if (Vector2.Distance(transform.position, target.position) < safeFollowDistance)
+    {
+       transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+    }
+}
+
+private void FlipDirection()
+{
+    // se la posizione X del nemico è superiore alla posizione X del player (quindi il player è a sinistra) allora gira la posizione del nemico a sinistra
+    if (transform.position.x > target.position.x)
+    {
+      theSp.flipX = true;
+    }
+    else
+    {
+      theSp.flipX = false;
+    }
+}
