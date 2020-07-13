@@ -47,8 +47,12 @@ Si inizializzano i seguenti parametri:
 - this.sprite = Image.FromFile(es. @"Sprites/player.png"); [carica lo sprite dalla cartella specificata]
 - this.graphics = graphics; (assegna il controllo grafico)
 
-// assegna al transform dell'oggetto la posizione iniziale. In questo caso lo sprite verrà caricato in basso ed al centro dello schermo.
+// assegna al transform dell'oggetto la posizione iniziale. In questo esempio lo sprite verrà caricato in basso ed al centro dello schermo.
 - transform.Position = new Vector2(GameWorld.WorldSize.Width / 2 - sprite.Width / 2, GameWorld.WorldSize.Height - sprite.Height);
+
+// in questo esempio lo sprite verrà caricato in alto a sinistra dello schermo
+- transform.Position = new Vector2(0, 0);
+
 
 METODI:
 
