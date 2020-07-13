@@ -31,6 +31,7 @@ private void GameLoop_Tick(object sender, EventArgs e)
 
 GameObject.cs
 
+Classe che contiene i parametri di creazione di tutti i GameObject del gioco.
 
 FIELDS AND PROPERTIES:
 - variabile privata di tipo Image (es. private Image sprite) che conterrà lo sprite dell'oggetto
@@ -120,5 +121,21 @@ public void Update
 }
 
 ----------------------------------------------------------------------------
+
+Transform.cs
+
+Classe che regola il transform dei GameObject
+
+FIELDS AND PROPERTIES:
+
+- proprietà publica di tipo Vector2 (es. public Vector2 Position { get; set; })
+
+CONSTRUCTOR:
+
+public Transform()
+{
+   Position = new Vector2(0, 0);
+}
+
 
 
