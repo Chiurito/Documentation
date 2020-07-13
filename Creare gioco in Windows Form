@@ -119,7 +119,7 @@ METODI:
 
 public void Update
 {
-  deviceControl.Clear(backGroundColor); [ad ogni update, cancella l'intera superfice del form con il colore specificato]
+  graphicControl.Clear(backGroundColor); [ad ogni update, cancella l'intera superfice del form con il colore specificato]
   
   gameObject.Update(); (richiama il metodo update del GameObject)
   
