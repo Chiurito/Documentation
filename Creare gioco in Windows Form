@@ -1,0 +1,124 @@
+
+Class necessarie:
+
+Form1.cs (form principale).
+GameWorld.cs (classe del mondo di gioco).
+GameObjet.cs (classe che contiene tutti GameObject del gioco).
+Transform.cs (classe che regola position, rotation e scale).
+
+--------------------------------------------------------------
+
+Form1.cs
+
+Qui viene instanziato il GameWorld
+
+- private GameWorld gameWorld;
+
+nel costruttore si crea l'istanza del GameWorld:
+
+gameWorld = new GameWorld(DisplayRectangle, CreateGraphics());
+
+Nel form designer si aggiunge un timer che regolerà l'update del form. Impostare active su True, nome (es. GameLoop) e intervallo in ms (es. 30):
+
+Il GameLoop regolerà l'update del GameWorld:
+
+private void GameLoop_Tick(object sender, EventArgs e)
+{
+   gameWorld.Update();
+}
+
+----------------------------------------------------------------
+
+GameObject.cs
+
+
+FIELDS AND PROPERTIES:
+- variabile privata di tipo Image (es. private Image sprite) che conterrà lo sprite dell'oggetto
+- variabile privata di tipo Graphics (es. private Graphics graphics) che contiene il controllo grafico dell'oggetto.
+- variabile privata di tipo Transform (es. private Transform transform) che contiene posizione dell'oggetto.
+
+CONSTRUCTOR:
+il constructor accetta 1 parametro, il controllo grafico dell'oggetto (Graphics graphics).
+
+Si inizializzano i seguenti parametri:
+
+- this.transform = new Transform(); [crea un'istanza della classe Transform]
+- this.sprite = Image.FromFile(es. @"Sprites/player.png"); [carica lo sprite dalla cartella specificata]
+- this.graphics = graphics; (assegna il controllo grafico)
+
+// assegna al transform dell'oggetto la posizione iniziale. In questo caso lo sprite verrà caricato in basso ed al centro dello schermo.
+- transform.Position = new Vector2(GameWorld.WorldSize.Width / 2 - sprite.Width / 2, GameWorld.WorldSize.Height - sprite.Height);
+
+METODI:
+
+public void Update()
+{
+  //REGOLA IL MOVIMENTO DELL'OGGETTO TRAMITE TASTIERA
+  if (Keyboard.IsKeyDown(Keys.D))
+  {
+     position.X += 1;
+  }
+  if (Keyboard.IsKeyDown(Keys.A))
+  {
+     position.X -= 1;
+  }
+  if (Keyboard.IsKeyDown(Keys.S))
+  {
+     position.Y += 1;
+  }
+  if (Keyboard.IsKeyDown(Keys.W))
+  {
+     position.Y -= 1;
+  }
+  
+  //DISEGNA L'OGGETTO SPECIFICATO ALLE COORDINATE SPECIFICATE
+  graphics.DrawImage(sprite, transform.Position.X, transform.Position.Y);
+  
+}
+
+
+--------------------------------------------------------------
+
+GameWorld.cs
+
+Viene instanziata nel Form1.cs (o come si chiama il form iniziale del gioco).
+
+FIELDS AND PROPERTIES:
+- variabile privata di tipo Graphics (es. private Graphics deviceControl) che contiene il controllo grafico.
+- variabile privata di tipo BufferedGraphics (es. private BufferedGraphics backBuffer) che contiene i controllo del doppio buffer per evitare il blink del GameObject durante il refresh.
+- variabile privata di tipo Color (es. private Color backGroundColor) che contiene il colore del background del gioco.
+- variabile privata di tipo GameObject (es private GameObject gameObject) che contiene il GameObject.
+- proprietà statica publica di tipo Size (es. public static Size WorldSize { get; private set; }) contiene i valori per impostare la grandezza del mondo di gioco.
+
+CONSTRUCTOR:
+il constructor accetta 2 parametri: tipo Rectangle (es. Rectangle rectangle), tipo Graphics (es. Graphics graphics)
+
+es.
+public GameWorld(Rectangle rectangle, Graphics graphics)
+{
+}
+
+Nel constructor si inizializzano i seguenti parametri:
+
+- WorldSize che sarà uguale al DisplayRectangle.Size (DisplayRectangle restituisce un rettangolo virtuale che rappresente la grandezza X ed Y del window form, quindi del mondo di gioco.
+- this.backBuffer che sarà uguale a BufferedGraphicsManager.Current.Allocate(graphics, displayRectangle) crea il doppio buffer per evitare flickering durante il refresh.
+- this.deviceControl = backBuffer.Graphics (assegna alla variabile di tipo Graphics il backBuffer).
+- backGroundColor = ColorTranslator.FromHtml("#000c41");  [assegna un colore, in formato esadecimale, al background].
+- gameObject = new GameObject(deviceControl) [crea un'istanza del GameObject].
+
+
+METODI:
+
+public void Update
+{
+  deviceControl.Clear(backGroundColor); [ad ogni update, cancella l'intera superfice del form con il colore specificato]
+  
+  gameObject.Update(); (richiama il metodo update del GameObject)
+  
+  backBuffer.Render(); (esegue il render del doppio buffer)
+  
+}
+
+----------------------------------------------------------------------------
+
+
