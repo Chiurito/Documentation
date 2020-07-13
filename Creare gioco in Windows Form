@@ -85,7 +85,7 @@ GameWorld.cs
 Viene instanziata nel Form1.cs (o come si chiama il form iniziale del gioco).
 
 FIELDS AND PROPERTIES:
-- variabile privata di tipo Graphics (es. private Graphics deviceControl) che contiene il controllo grafico.
+- variabile privata di tipo Graphics (es. private Graphics graphicControl) che contiene il controllo grafico.
 - variabile privata di tipo BufferedGraphics (es. private BufferedGraphics backBuffer) che contiene i controllo del doppio buffer per evitare il blink del GameObject durante il refresh.
 - variabile privata di tipo Color (es. private Color backGroundColor) che contiene il colore del background del gioco.
 - variabile privata di tipo GameObject (es private GameObject gameObject) che contiene il GameObject.
@@ -104,7 +104,7 @@ Nel constructor si inizializzano i seguenti parametri:
 
 - WorldSize che sarà uguale al DisplayRectangle.Size (DisplayRectangle restituisce un rettangolo virtuale che rappresente la grandezza X ed Y del window form, quindi del mondo di gioco.
 - this.backBuffer che sarà uguale a BufferedGraphicsManager.Current.Allocate(graphics, displayRectangle) crea il doppio buffer per evitare flickering durante il refresh.
-- this.deviceControl = backBuffer.Graphics (assegna alla variabile di tipo Graphics il backBuffer).
+- this.graphicControl = backBuffer.Graphics (assegna alla variabile di tipo Graphics il backBuffer).
 - backGroundColor = ColorTranslator.FromHtml("#000c41");  [assegna un colore, in formato esadecimale, al background].
 - gameObject = new GameObject(deviceControl) [crea un'istanza del GameObject].
 
