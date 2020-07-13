@@ -103,8 +103,14 @@ public GameWorld(Rectangle rectangle, Graphics graphics)
 Nel constructor si inizializzano i seguenti parametri:
 
 - WorldSize che sarà uguale al DisplayRectangle.Size (DisplayRectangle restituisce un rettangolo virtuale che rappresente la grandezza X ed Y del window form, quindi del mondo di gioco.
-- this.backBuffer che sarà uguale a BufferedGraphicsManager.Current.Allocate(graphics, displayRectangle) assegna alla variabile graphics, passata nel constructor, il backbuffer (che evita il flickering durante l'update)
-- this.graphicControl = backBuffer.Graphics (assegna alla variabile di tipo Graphics (field) il backBuffer).
+
+//prende in ingresso il parametro graphics e displayRectangle del constructor e le passa nella variabile backBuffer 
+//questo per evitare il flickering durante l'update.
+- this.backBuffer che sarà uguale a BufferedGraphicsManager.Current.Allocate(graphics, displayRectangle) 
+
+//assegna alla variabile di tipo Graphics (del GameWorld, non quella del constructor) il parametro Graphics del backBuffer assegnato sopra
+- this.graphicControl = backBuffer.Graphics;
+
 - backGroundColor = ColorTranslator.FromHtml("#000c41");  [assegna un colore, in formato esadecimale, al background].
 - gameObject = new GameObject(deviceControl) [crea un'istanza del GameObject].
 
