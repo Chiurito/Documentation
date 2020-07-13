@@ -88,8 +88,8 @@ FIELDS AND PROPERTIES:
 - variabile privata di tipo Graphics (es. private Graphics graphicControl) che contiene il controllo grafico.
 - variabile privata di tipo BufferedGraphics (es. private BufferedGraphics backBuffer) che contiene i controllo del doppio buffer per evitare il blink del GameObject durante il refresh.
 - variabile privata di tipo Color (es. private Color backGroundColor) che contiene il colore del background del gioco.
-- variabile privata di tipo GameObject (es private GameObject gameObject) che contiene il GameObject.
 - proprietà statica publica di tipo Size (es. public static Size WorldSize { get; private set; }) contiene i valori per impostare la grandezza del mondo di gioco.
+- variabile privata di tipo GameObject (es private GameObject gameObject) che contiene il GameObject.
 
 CONSTRUCTOR:
 il constructor accetta 2 parametri: tipo Rectangle per stabilire la grandezza del Form [o gameworld] (es. Rectangle rectangle), tipo Graphics per il controllo grafico (es. Graphics graphics).
