@@ -2,8 +2,8 @@
 Class necessarie:
 
 Form1.cs (form principale).
-GameWorld.cs (classe del mondo di gioco).
 GameObjet.cs (classe che contiene tutti GameObject del gioco).
+GameWorld.cs (classe del mondo di gioco).
 Transform.cs (classe che regola position, rotation e scale).
 
 --------------------------------------------------------------
