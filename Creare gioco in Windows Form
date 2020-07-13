@@ -30,7 +30,7 @@ private void GameLoop_Tick(object sender, EventArgs e)
 ----------------------------------------------------------------
 
 GameObject.cs
-
+ 
 Classe che contiene i parametri di creazione di tutti i GameObject del gioco.
 
 FIELDS AND PROPERTIES:
