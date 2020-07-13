@@ -16,7 +16,7 @@ Qui viene instanziato il GameWorld
 
 nel costruttore si crea l'istanza del GameWorld:
 
-gameWorld = new GameWorld(DisplayRectangle, CreateGraphics());
+gameWorld = new GameWorld(DisplayRectangle, CreateGraphics()); [il DisplayRectangle  disegna un rettangolo virtuale che prende le dimensioni e regola la dimensione del Form, quindi del GameWorld]
 
 Nel form designer si aggiunge un timer che regolerà l'update del form. Impostare active su True, nome (es. GameLoop) e intervallo in ms (es. 30):
 
