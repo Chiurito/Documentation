@@ -92,7 +92,7 @@ FIELDS AND PROPERTIES:
 - proprietà statica publica di tipo Size (es. public static Size WorldSize { get; private set; }) contiene i valori per impostare la grandezza del mondo di gioco.
 
 CONSTRUCTOR:
-il constructor accetta 2 parametri: tipo Rectangle (es. Rectangle rectangle), tipo Graphics (es. Graphics graphics).
+il constructor accetta 2 parametri: tipo Rectangle per stabilire la grandezza del Form [o gameworld] (es. Rectangle rectangle), tipo Graphics per il controllo grafico (es. Graphics graphics).
 Il primo serve a regolare la dimensione del GameWorld, il secondo per il controllo grafico.
 
 es.
