@@ -109,7 +109,7 @@ Nel constructor si inizializzano i seguenti parametri:
 - WorldSize che sarà uguale al DisplayRectangle.Size (DisplayRectangle restituisce un rettangolo virtuale che rappresente la grandezza X ed Y del window form, quindi del mondo di gioco.
 
 //prende in ingresso il parametro graphics e displayRectangle del constructor e le passa nella variabile backBuffer 
-//BufferedGraphicsManager.Current.Allocate serve per evitare il flickering durante l'update.
+//BufferedGraphicsManager.Current.Allocate(target Graphic, target Rectangle) serve per assegnare il doppio buffer ed evitare il flickering durante l'update.
 - this.backBuffer che sarà uguale a BufferedGraphicsManager.Current.Allocate(graphics, displayRectangle) 
 
 //assegna alla variabile di tipo Graphics (del GameWorld, non quella del constructor) il parametro Graphics del backBuffer assegnato sopra
