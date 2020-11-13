@@ -1,0 +1,40 @@
+Create FreeLook Camera
+
+Assign Player at "Follow" and "Look at" parameters
+
+LENS --> FieldOfView: 60
+
+Invert X and Y axis control
+
+---------------------------------------------
+ORBITS:
+
+Binding Mode: Simple Follow With World Up
+Spline Curvature: 0.2
+
+TopRig -->     Height 4.5  Radius 3
+MiddleRig -->  Height 2.5  Radius 4
+BottomRig -->  Height 1    Radius 4
+
+----------------------------------------------
+
+TOP RIG
+
+AIM
+Tracked Object Of X ---> set Y to 1.5
+
+MIDDLE RIG
+
+AIM
+Tracked Object Of X ---> set Y to 1
+
+BOTTOM RIG
+
+AIM
+Tracked Object Of X ---> set Y to 1.3
+
+-----------------------------------------------
+
+
+
+
