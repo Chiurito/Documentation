@@ -6,6 +6,7 @@ una sola volta all'interno del programma.
 GAME MANAGER, Player, AUDIO MANAGER e MANAGER che gestiscono la logica del software sono esempi di classi
 che devono poter essere istanziate solo una volta durante l'esecuzione del software.
 
+	
 public abstract class Singleton<T> : MonoBehaviour where T : Component
 {
     //crea un "punto di accesso" al componente passato in singleton <T>
