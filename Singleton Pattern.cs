@@ -1,8 +1,8 @@
 
 DEFINIZIONE DI SINGLETON ABSTRACT CLASS:
 Classe che non può essere istanziata, ma le classi che la "ereditano (con il simbolo :)" possono essere
-istanziate a loro volta. Assicura che le classi che "ereditanti" possano essere istanziate solo
-una sola volta all'interno del programma.
+istanziate. Assicura che le classi "ereditanti" possano essere istanziate solo una sola volta durante l'esecuzione del programma.
+	
 GAME MANAGER, Player, AUDIO MANAGER e MANAGER che gestiscono la logica del software sono esempi di classi
 che devono poter essere istanziate solo una volta durante l'esecuzione del software.
 
