@@ -9,11 +9,10 @@ che devono poter essere istanziate solo una volta durante l'esecuzione del softw
 	
 public abstract class Singleton<T> : MonoBehaviour where T : Component
 {
-    //crea un "punto di accesso" al componente passato in singleton <T>
-	//e ne crea una variabile "istance" statica accessibile da ogni parte del programma
+    	//crea una variabile "istance" statica, accessibile da ogni parte del programma, del tipo passato in singleton.
 	public static T instance;
 
-    //in questo metodo viene controllato se c'è già un'istanza attiva della classe/oggetto/componente.
+   	 //in questo metodo viene controllato se c'è già un'istanza attiva della classe/oggetto/componente.
 	//quindi se instance non è nulla (quindi già esiste) attiva un warning con il nome della istanza attiva.
 	//Altrimenti crea un'istanza della classe/oggetto/componente passato al singleton (this as T).
 	protected virtual void Awake()
@@ -31,12 +30,10 @@ public abstract class Singleton<T> : MonoBehaviour where T : Component
 
 ESEMPIO DI CLASSE CHE EREDITA IL SINGLETON <di tipo Player>:
 
-
 public class Player : Singleton<Player>
 {
     public void DoSomething();
 }
-
 
 
 
@@ -48,9 +45,7 @@ public class Enemy : Singleton<Enemy>
 }
 
 
-
-
-
+ESEMPIO DI CLASSE CHE UTILIZZA LA SINGOLA ISTANZA DELL'OGGETTO SINGLETON
 
 public class OtherPartOfGame : MonoBehaviour
 {
