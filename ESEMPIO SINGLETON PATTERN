@@ -14,25 +14,29 @@ Se "instance" è nulla (quindi già esiste) crea un'istanza della classe/oggetto
 Altrimenti distrugge l'oggetto duplicato.
 	
 
-public abstract class Singleton<T> : MonoBehaviour where T : Component
-{	
+public abstract class SingletonMonobehaviour<T> : MonoBehaviour where T:MonoBehaviour
+{
     private static T instance;
-    
+
     public static T Instance
     {
-  	get { return instance;}  
+        get
+        {
+            return instance;
+        }
     }
-    
+
     protected virtual void Awake()
     {
-        if (Instance == null) 
-	{
-           Instance = this as T;
+        if(instance == null)
+        {
+            instance = this as T;
         }
-	else
-	{
-	   Destroy(gameObject);
-	}
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 }
 
 
@@ -40,7 +44,7 @@ ESEMPIO DI CLASSE CHE EREDITA IL SINGLETON <di tipo Player>:
 SICCOME QUESTA CLASSE EREDITA LA CLASSE SINGLETON, QUANDO VIENE CREATO UN OGGETTO VIENE ANCHE ESEGUITO IL CODICE
 ALL'INTERNO DELLA CLASSE SINGLETON. SE VENGONO CREATE DUE ISTANTE DI QUESTA CLASSE/OGGETTO, UNA VERRA' ELIMINATA.
 
-public class Player : Singleton<Player>
+public class Player : SingletonMonobehaviour<Player>
 {
    //..codice
 }
