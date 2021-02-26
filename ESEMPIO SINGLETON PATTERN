@@ -6,54 +6,40 @@ Assicura che le classi "ereditanti" possano essere istanziate solo e soltanto un
 GAME MANAGER, Player, AUDIO MANAGER e MANAGER che gestiscono la logica del software sono esempi di classi
 che devono poter essere istanziate solo una volta durante l'esecuzione del software.
 
-	
-public abstract class Singleton<T> : MonoBehaviour where T : Component
-{
-    	//crea una variabile "istance" statica, accessibile da ogni parte del programma, del tipo passato in singleton.
-	
-	public static T instance;
+IN QUESTO ESEMPIO:
 
-   	 //in questo metodo viene controllato se c'è già un'istanza attiva della classe/oggetto/componente.
-	//quindi se instance non è nulla (quindi già esiste) attiva un warning con il nome della istanza attiva.
-	//Altrimenti crea un'istanza della classe/oggetto/componente passato al singleton (this as T).
+Viene controllato se c'è già un'istanza attiva della classe/oggetto/componente.
+Se "instance" è nulla (quindi già esiste) crea un'istanza della classe/oggetto/componente passato al singleton (this as T).
+Altrimenti distrugge l'oggetto duplicato.
 	
+
+public abstract class Singleton<T> : MonoBehaviour where T : Component
+{	
+    private static T instance;
+    
+    public static T Instance
+    {
+  	get { return instance;}  
+    }
+    
     protected virtual void Awake()
     {
-        if (instance != null) 
+        if (Instance == null) 
 	{
-            string typename = typeof(T).Name;
-            Debug.LogWarning($"More that one instance of {typename} found.");
+           Instance = this as T;
         }
-        instance = this as T;
-   	}
-    }
-
-
+	else
+	{
+	   Destroy(gameObject);
+	}
+}
 
 
 ESEMPIO DI CLASSE CHE EREDITA IL SINGLETON <di tipo Player>:
+SICCOME QUESTA CLASSE EREDITA LA CLASSE SINGLETON, QUANDO VIENE CREATO UN OGGETTO VIENE ANCHE ESEGUITO IL CODICE
+ALL'INTERNO DELLA CLASSE SINGLETON. SE VENGONO CREATE DUE ISTANTE DI QUESTA CLASSE/OGGETTO, UNA VERRA' ELIMINATA.
 
 public class Player : Singleton<Player>
 {
-    public void DoSomething();
-}
-
-
-
-ESEMPIO DI CLASSE CHE EREDITA IL SINGLETON <di tipo Player>:
-
-public class Enemy : Singleton<Enemy>
-{
-    public void DoSomething();
-}
-
-
-ESEMPIO DI CLASSE CHE UTILIZZA LA SINGOLA ISTANZA DELL'OGGETTO SINGLETON
-
-public class OtherPartOfGame : MonoBehaviour
-{
-    void Start() {
-        Player.instance.DoSomething();
-        Enemy.instance.DoSomething();
-    }
+   //..codice
 }
