@@ -1,0 +1,33 @@
+Si necessita di:
+
+- una classe che gestisce gli eventi (Event Handler);
+- una o più classi che chiamano o lanciano l'evento (Publishers);
+- uno o più classi che eseguono l'evento (Subscrivers);
+--------------------------------------------------------------------
+
+Un esempio di classe che gestisce l'evento potrebbe essere così strutturata:
+
+
+// Creazione del Delegate da sottoscrivere
+public delegate void SomeNameDelegate()
+
+public static class EventHandler
+{
+    // Dichiarazione dell'evento
+    
+    public static event SomeNameDelegate NameEvent;
+
+    // Call dell'evento da parte dei Publishers
+    // La call si deve fare in un metodo come questo perchè va verificato se c'è
+    // almeno un subscriver all'evento
+    
+    public static void CallMovementEvent()
+    {
+        if (NameEvent != null)
+        {
+            NameEvent();
+        }
+    }
+
+}
+
